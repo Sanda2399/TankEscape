@@ -26,5 +26,10 @@ private:
 	USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UCameraComponent* Camera;	
+	UCameraComponent* Camera;
+
+	// Depending on which Power Up is active, set the others to false.
+	bool FireSingleShot = true;
+	bool FireHomingShot = false;
+	bool FireWideShot = false;
 };
