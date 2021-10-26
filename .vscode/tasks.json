@@ -1,0 +1,720 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "TankEscape Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"Mac",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Shipping",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscape IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscape IOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscape",
+				"IOS",
+				"Test",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscapeEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Debug",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscapeEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"TankEscapeEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		},
+		{
+			"label": "TankEscapeEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"TankEscapeEditor",
+				"Mac",
+				"Development",
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.27"
+			}
+		}
+	]
+}

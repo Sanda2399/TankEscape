@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "TankEscape (Debug)",
+			"request": "launch",
+			"preLaunchTask": "TankEscape Mac Debug Build",
+			"program": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/Binaries/Mac/UE4-Mac-Debug.app/Contents/MacOS/UE4-Mac-Debug",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscape (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "TankEscape Mac DebugGame Build",
+			"program": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/Binaries/Mac/UE4-Mac-DebugGame.app/Contents/MacOS/UE4-Mac-DebugGame",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscape (Development)",
+			"request": "launch",
+			"preLaunchTask": "TankEscape Mac Development Build",
+			"program": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/Binaries/Mac/UE4.app/Contents/MacOS/UE4",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscape (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "TankEscape Mac Shipping Build",
+			"program": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/Binaries/Mac/UE4-Mac-Shipping.app/Contents/MacOS/UE4-Mac-Shipping",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscape (Test)",
+			"request": "launch",
+			"preLaunchTask": "TankEscape Mac Test Build",
+			"program": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/Binaries/Mac/UE4-Mac-Test.app/Contents/MacOS/UE4-Mac-Test",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscapeEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "TankEscapeEditor Mac Debug Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor-Mac-Debug.app/Contents/MacOS/UE4Editor-Mac-Debug",
+			"args": [
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscapeEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "TankEscapeEditor Mac DebugGame Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor-Mac-DebugGame.app/Contents/MacOS/UE4Editor-Mac-DebugGame",
+			"args": [
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "TankEscapeEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "TankEscapeEditor Mac Development Build",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.27",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/Users/Shared/Epic Games/UE_4.27/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/TankEscape.uproject",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/Users/Shared/Epic Games/UE_4.27"
+		}
+	]
+}
