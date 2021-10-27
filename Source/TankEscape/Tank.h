@@ -20,16 +20,26 @@ class TANKESCAPE_API ATank : public ABasePawn
 public:
 	ATank();
 
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
+	// Components
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UCameraComponent* Camera;
 
+	//Member Variables
 	// Depending on which Power Up is active, set the others to false.
 	bool FireSingleShot = true;
 	bool FireHomingShot = false;
 	bool FireWideShot = false;
+
+	// Member Functions
+	void Move(float Value);
+	void SetFireSingleShot();
+	void SetFireHomingShot();
+	void SetFireWideShot();
 };
