@@ -27,6 +27,27 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent -> BindAction(TEXT("Enable Wide Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireWideShot);
 }
 
+// Called every frame
+void ATank::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+    if (PlayerControllerRef)
+    {
+        FHitResult HitResult;
+        PlayerControllerRef -> GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+        RotateTurret(HitResult.ImpactPoint);
+    }
+}
+
+// Called when the game starts or when spawned
+void ATank::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PlayerControllerRef = Cast<APlayerController>(GetController());
+}
+
 void ATank::Move(float Value)
 {
     FVector DeltaLocation = FVector::ZeroVector;
