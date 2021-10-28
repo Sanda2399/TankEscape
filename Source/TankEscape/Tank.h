@@ -37,11 +37,15 @@ private:
 	bool FireHomingShot = false;
 	bool FireWideShot = false;
 
-	UPROPERTY(EditAnywhere, Category = "Tank Attributes")
+	UPROPERTY(EditAnywhere, Category = "Movement")
 	float Speed = 350.f;
+
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float TurnRate = 130.f;
 
 	// Member Functions
 	void Move(float Value);
+	void Turn(float Value);
 	void SetFireSingleShot();
 	void SetFireHomingShot();
 	void SetFireWideShot();

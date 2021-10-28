@@ -21,6 +21,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
     PlayerInputComponent -> BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+    PlayerInputComponent -> BindAxis(TEXT("Turn"), this, &ATank::Turn);
     PlayerInputComponent -> BindAction(TEXT("Enable Single Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireSingleShot);
     PlayerInputComponent -> BindAction(TEXT("Enable Homing Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireHomingShot);
     PlayerInputComponent -> BindAction(TEXT("Enable Wide Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireWideShot);
@@ -31,6 +32,13 @@ void ATank::Move(float Value)
     FVector DeltaLocation = FVector::ZeroVector;
 	DeltaLocation.X = Value * Speed * UGameplayStatics::GetWorldDeltaSeconds(this);
 	AddActorLocalOffset(DeltaLocation, true);
+}
+
+void ATank::Turn(float Value)
+{
+    FRotator DeltaRotation = FRotator::ZeroRotator;
+    DeltaRotation.Yaw = Value * TurnRate * UGameplayStatics::GetWorldDeltaSeconds(this);
+    AddActorLocalRotation(DeltaRotation, true);
 }
 
 void ATank::SetFireSingleShot()
