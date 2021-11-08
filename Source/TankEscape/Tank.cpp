@@ -48,6 +48,7 @@ void ATank::BeginPlay()
 	PlayerControllerRef = Cast<APlayerController>(GetController());
 }
 
+////////////////// Movement ////////////////////
 void ATank::Move(float Value)
 {
     FVector DeltaLocation = FVector::ZeroVector;
@@ -62,6 +63,7 @@ void ATank::Turn(float Value)
     AddActorLocalRotation(DeltaRotation, true);
 }
 
+//////////////////// Power Ups ////////////////////////////
 void ATank::SetFireSingleShot()
 {
     FireSingleShot = true;

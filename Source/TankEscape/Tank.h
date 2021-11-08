@@ -40,22 +40,28 @@ private:
 	UCameraComponent* Camera;
 
 	//Member Variables
-	// Depending on which Power Up is active, set the others to false.
+
+	///////////// Tank Power Up (Firing) Settings ////////////
 	bool FireSingleShot = true;
 	bool FireHomingShot = false;
 	bool FireWideShot = false;
 
+	////////////// Tank Movement Settings ///////////////
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float Speed = 350.f;
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnRate = 130.f;
 
+	// Player Controller for the Tank
 	APlayerController* PlayerControllerRef;
 
 	// Member Functions
+	/////// Movement ///////
 	void Move(float Value);
 	void Turn(float Value);
+
+	/////// Power Ups ///////
 	void SetFireSingleShot();
 	void SetFireHomingShot();
 	void SetFireWideShot();
