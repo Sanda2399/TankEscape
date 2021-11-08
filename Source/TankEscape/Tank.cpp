@@ -25,6 +25,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent -> BindAction(TEXT("Enable Single Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireSingleShot);
     PlayerInputComponent -> BindAction(TEXT("Enable Homing Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireHomingShot);
     PlayerInputComponent -> BindAction(TEXT("Enable Wide Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireWideShot);
+    PlayerInputComponent -> BindAction(TEXT("FireProjectile"), IE_Pressed, this, &ATank::FireProjectile);
 }
 
 // Called every frame
@@ -63,31 +64,24 @@ void ATank::Turn(float Value)
     AddActorLocalRotation(DeltaRotation, true);
 }
 
-//////////////////// Power Ups ////////////////////////////
+//////////////////// Power Up Settings ////////////////////////////
 void ATank::SetFireSingleShot()
 {
-    FireSingleShot = true;
-    FireHomingShot = false;
-    FireWideShot = false;
+    SetFiringMode(1);
 
     UE_LOG(LogTemp, Warning, TEXT("Single Shot On"));
 }
 
 void ATank::SetFireHomingShot()
 {
-    FireSingleShot = false;
-    FireHomingShot = true;
-    FireWideShot = false;
+    SetFiringMode(2);
 
     UE_LOG(LogTemp, Warning, TEXT("Homing Shot On"));
 }
 
 void ATank::SetFireWideShot()
 {
-    FireSingleShot = false;
-    FireHomingShot = false;
-    FireWideShot = true;
+    SetFiringMode(3);
 
     UE_LOG(LogTemp, Warning, TEXT("Wide Shot On"));
 }
-

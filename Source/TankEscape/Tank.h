@@ -32,19 +32,14 @@ protected:
 
 
 private:
-	// Components
+	//Member Variables
+
+	////////////////// Components ////////////////////////
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UCameraComponent* Camera;
-
-	//Member Variables
-
-	///////////// Tank Power Up (Firing) Settings ////////////
-	bool FireSingleShot = true;
-	bool FireHomingShot = false;
-	bool FireWideShot = false;
 
 	////////////// Tank Movement Settings ///////////////
 	UPROPERTY(EditAnywhere, Category = "Movement")
@@ -53,15 +48,16 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnRate = 130.f;
 
-	// Player Controller for the Tank
+	/////////// Player Controller for the Tank /////////////
 	APlayerController* PlayerControllerRef;
 
 	// Member Functions
+
 	/////// Movement ///////
 	void Move(float Value);
 	void Turn(float Value);
 
-	/////// Power Ups ///////
+	/////// Power Up Settings ///////
 	void SetFireSingleShot();
 	void SetFireHomingShot();
 	void SetFireWideShot();

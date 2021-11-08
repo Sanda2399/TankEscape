@@ -17,11 +17,18 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+	///////////////// BasePawn Power Up (Firing) Settings /////////////////
+	void SetFiringMode(int Value);
+
 protected:
+	////////////// Movement //////////////
 	void RotateTurret(FVector LookAtLocation);
 
+	///////////////// BasePawn Power Up (Firing) Settings /////////////////
+	void FireProjectile();
+
 private:
-	// Components
+	////////////// Components //////////////
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCapsuleComponent* CapsuleComp;
 
@@ -33,4 +40,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
+
+	///////////////// BasePawn Power Up (Firing) Settings /////////////////
+	bool bFireSingleShot = true;
+	bool bFireHomingShot = false;
+	bool bFireWideShot = false;
 };
