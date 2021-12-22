@@ -50,9 +50,9 @@ private:
 	// Array for Spawn Points
 	TArray<USceneComponent*> SpawnPoints;
 
-	// Use in the Blueprint to set the type of Projectile to be spawned. The projectile must be based on 'class AProjectile'.
+	// Use in the Blueprint to set the type of Projectile to be spawned. The type of projectile must be based on 'class AProjectile'.
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile Settings")
-	TSubclassOf<class AProjectile> ProjectileClass;
+	TSubclassOf<class AProjectile> ProjectileType;
 
 	///////////////// BasePawn Power Up (Firing) Settings /////////////////
 	bool bFireSingleShot = true;

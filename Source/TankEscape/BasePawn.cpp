@@ -89,7 +89,7 @@ void ABasePawn::FireProjectile()
 		FRotator ProjectileSpawnPointMiddleRotation = ProjectileSpawnPointMiddle -> GetComponentRotation();
 
 		// Spawn a Projectile
-		GetWorld() -> SpawnActor<AProjectile>(ProjectileClass, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
+		GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
 	}
 	else if (bFireHomingShot)
 	{
@@ -104,7 +104,7 @@ void ABasePawn::FireProjectile()
 			FRotator ProjectileSpawnPointRotation = SpawnPoints[i] -> GetComponentRotation();
 			
 			// Spawn a Projectile
-			GetWorld() -> SpawnActor<AProjectile>(ProjectileClass, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation);
+			GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation);
 		}
 	}
 }
