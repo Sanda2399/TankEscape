@@ -21,10 +21,27 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	// Member Variables
+	// Member Variables to be used for finding the Tank's current location.
 	class ATank* PlayerTank;
 	float TankCurDistance;
 
+
+	/////////// Tower Settings ///////////
 	UPROPERTY(EditAnywhere, Category = "Tower Settings")
 	float FiringRange = 450.f;
+
+	// Verifies if tank is in Range to be fired at.
+	bool InFiringRange();
+
+
+	/////////// Timer Settings ///////////
+
+	// * The Timer Handle is a way of accessing this exact timer. *
+	FTimerHandle FireRateTimerHandle;
+
+	// Adjust for Tower firing speeds.
+	float FiringRate = 2.f;
+
+	// Check whether Firing Conditions have been met such as, is tank in range, does tank exist, etc.
+	void CheckFireCondition();
 };

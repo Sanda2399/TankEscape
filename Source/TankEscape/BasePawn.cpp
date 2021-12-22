@@ -20,8 +20,17 @@ ABasePawn::ABasePawn()
 	TurretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
 	TurretMesh -> SetupAttachment(BaseMesh);
 
-	ProjectileSpawnPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point"));
-	ProjectileSpawnPoint -> SetupAttachment(TurretMesh);
+	ProjectileSpawnPointMiddle = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point Middle"));
+	ProjectileSpawnPointMiddle -> SetupAttachment(TurretMesh);
+	SpawnPoints.Emplace(ProjectileSpawnPointMiddle);
+
+	ProjectileSpawnPointLeft = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point Left"));
+	ProjectileSpawnPointLeft -> SetupAttachment(TurretMesh);
+	SpawnPoints.Emplace(ProjectileSpawnPointLeft);
+
+	ProjectileSpawnPointRight = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point Right"));
+	ProjectileSpawnPointRight -> SetupAttachment(TurretMesh);
+	SpawnPoints.Emplace(ProjectileSpawnPointRight);
 }
 
 ////////////// Movement //////////////
@@ -38,32 +47,32 @@ void ABasePawn::SetFiringMode(int Value)
 {
 	switch (Value)
 	{
-	// Single Shot
-	case 1:
-		bFireSingleShot = true;
-		bFireHomingShot = false;
-		bFireWideShot = false;
-		break;
+		// Single Shot
+		case 1:
+			bFireSingleShot = true;
+			bFireHomingShot = false;
+			bFireWideShot = false;
+			break;
 
-	// Homing Shot
-	case 2:
-		bFireSingleShot = false;
-		bFireHomingShot = true;
-		bFireWideShot = false;
-		break;
+		// Homing Shot
+		case 2:
+			bFireSingleShot = false;
+			bFireHomingShot = true;
+			bFireWideShot = false;
+			break;
+			
+		// Wide Shot
+		case 3:
+			bFireSingleShot = false;
+			bFireHomingShot = false;
+			bFireWideShot = true;
+			break;
 		
-	// Wide Shot
-	case 3:
-		bFireSingleShot = false;
-		bFireHomingShot = false;
-		bFireWideShot = true;
-		break;
-	
-	default:
-		bFireSingleShot = false;
-		bFireHomingShot = false;
-		bFireWideShot = false;
-		break;
+		default:
+			bFireSingleShot = false;
+			bFireHomingShot = false;
+			bFireWideShot = false;
+			break;
 	}
 }
 
@@ -71,10 +80,11 @@ void ABasePawn::FireProjectile()
 {
 	if (bFireSingleShot)
 	{
-		FVector ProjectileSpawnPointLocation = ProjectileSpawnPoint -> GetComponentLocation();
+		UE_LOG(LogTemp, Warning, TEXT("Fired Single Shot"));
+		FVector ProjectileSpawnPointMiddleLocation = ProjectileSpawnPointMiddle -> GetComponentLocation();
 		DrawDebugSphere(
 			GetWorld(),
-			ProjectileSpawnPointLocation,
+			ProjectileSpawnPointMiddleLocation,
 			25.f,
 			12,
 			FColor::Red,
@@ -86,8 +96,21 @@ void ABasePawn::FireProjectile()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Homing Shot"));
 	}
-	else if (bFireWideShot)
+	else if (bFireWideShot) 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Wide Shot"));
+		for (int i = 0; i < SpawnPoints.Num(); i++)
+		{
+			FVector ProjectileSpawnPointLocation = SpawnPoints[i] -> GetComponentLocation();
+			DrawDebugSphere(
+				GetWorld(),
+				ProjectileSpawnPointLocation,
+				25.f,
+				12,
+				FColor::Red,
+				false,
+				3.f
+			);
+		}
 	}
 }

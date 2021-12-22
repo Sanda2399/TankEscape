@@ -39,7 +39,16 @@ private:
 	UStaticMeshComponent* TurretMesh;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
-	USceneComponent* ProjectileSpawnPoint;
+	USceneComponent* ProjectileSpawnPointMiddle;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	USceneComponent* ProjectileSpawnPointLeft;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	USceneComponent* ProjectileSpawnPointRight;
+
+	// Array for Spawn Points
+	TArray<USceneComponent*> SpawnPoints;
 
 	///////////////// BasePawn Power Up (Firing) Settings /////////////////
 	bool bFireSingleShot = true;
