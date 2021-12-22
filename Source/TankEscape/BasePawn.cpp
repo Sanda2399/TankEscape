@@ -4,6 +4,7 @@
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
 #include "DrawDebugHelpers.h"
+#include "Projectile.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -11,6 +12,7 @@ ABasePawn::ABasePawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	////////// Pawn Components //////////
 	CapsuleComp = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Collision Capsule"));
 	RootComponent = CapsuleComp;
 
@@ -20,6 +22,8 @@ ABasePawn::ABasePawn()
 	TurretMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Turret Mesh"));
 	TurretMesh -> SetupAttachment(BaseMesh);
 
+
+	////////// Pawn Projectile Spawn Point Components //////////
 	ProjectileSpawnPointMiddle = CreateDefaultSubobject<USceneComponent>(TEXT("Projectile Spawn Point Middle"));
 	ProjectileSpawnPointMiddle -> SetupAttachment(TurretMesh);
 	SpawnPoints.Emplace(ProjectileSpawnPointMiddle);
@@ -82,15 +86,10 @@ void ABasePawn::FireProjectile()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Single Shot"));
 		FVector ProjectileSpawnPointMiddleLocation = ProjectileSpawnPointMiddle -> GetComponentLocation();
-		DrawDebugSphere(
-			GetWorld(),
-			ProjectileSpawnPointMiddleLocation,
-			25.f,
-			12,
-			FColor::Red,
-			false,
-			3.f
-		);
+		FRotator ProjectileSpawnPointMiddleRotation = ProjectileSpawnPointMiddle -> GetComponentRotation();
+
+		// Spawn a Projectile
+		GetWorld() -> SpawnActor<AProjectile>(ProjectileClass, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
 	}
 	else if (bFireHomingShot)
 	{
@@ -102,15 +101,10 @@ void ABasePawn::FireProjectile()
 		for (int i = 0; i < SpawnPoints.Num(); i++)
 		{
 			FVector ProjectileSpawnPointLocation = SpawnPoints[i] -> GetComponentLocation();
-			DrawDebugSphere(
-				GetWorld(),
-				ProjectileSpawnPointLocation,
-				25.f,
-				12,
-				FColor::Red,
-				false,
-				3.f
-			);
+			FRotator ProjectileSpawnPointRotation = SpawnPoints[i] -> GetComponentRotation();
+			
+			// Spawn a Projectile
+			GetWorld() -> SpawnActor<AProjectile>(ProjectileClass, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation);
 		}
 	}
 }
