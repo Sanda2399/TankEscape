@@ -26,6 +26,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     PlayerInputComponent -> BindAction(TEXT("Enable Homing Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireHomingShot);
     PlayerInputComponent -> BindAction(TEXT("Enable Wide Shot Shooting Style"), IE_Pressed, this, &ATank::SetFireWideShot);
     PlayerInputComponent -> BindAction(TEXT("FireProjectile"), IE_Pressed, this, &ATank::FireProjectile);
+    // PlayerInputComponent -> BindAction(TEXT("Set Target"), IE_Pressed, this, &ATank::SetCurrentEnemyTarget);
 }
 
 // Called every frame
@@ -33,10 +34,10 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-    if (PlayerControllerRef)
+    if (TankPlayerController)
     {
         FHitResult HitResult;
-        PlayerControllerRef -> GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
+        TankPlayerController -> GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
         RotateTurret(HitResult.ImpactPoint);
     }
 }
@@ -46,7 +47,18 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerControllerRef = Cast<APlayerController>(GetController());
+	TankPlayerController = Cast<APlayerController>(GetController());
+}
+
+void ATank::HandleDestruction()
+{
+    Super::HandleDestruction();
+
+    // Hides the Tank.
+    SetActorHiddenInGame(true);
+
+    // Disables the ticking of a game asset.
+    SetActorTickEnabled(false);
 }
 
 ////////////////// Movement ////////////////////

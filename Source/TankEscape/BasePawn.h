@@ -17,8 +17,15 @@ public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
 
+	// What to do when Pawn's health reached zero.
+	void HandleDestruction();
+
 	///////////////// BasePawn Power Up (Firing) Settings /////////////////
 	void SetFiringMode(int Value);
+
+	bool bFireSingleShot = true;
+	bool bFireHomingShot = false;
+	bool bFireWideShot = false;
 
 protected:
 	////////////// Movement //////////////
@@ -53,9 +60,4 @@ private:
 	// Use in the Blueprint to set the type of Projectile to be spawned. The type of projectile must be based on 'class AProjectile'.
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile Settings")
 	TSubclassOf<class AProjectile> ProjectileType;
-
-	///////////////// BasePawn Power Up (Firing) Settings /////////////////
-	bool bFireSingleShot = true;
-	bool bFireHomingShot = false;
-	bool bFireWideShot = false;
 };

@@ -15,6 +15,9 @@ public:
 	// Sets default values for this actor's properties
 	AProjectile();
 
+	// Changes whether a projectile will be a Homing Projectile or not.
+	void EnableHoming(int Value);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -26,8 +29,18 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
 	class UProjectileMovementComponent* ProjectileMovementComponent;
 
+	// Set if homing projectile is needed.
+	bool bHoming = false;
+
+	// How much Damage this Projectile class does.
+	UPROPERTY(EditAnywhere)
+	float Damage = 20.f;
+
+	UFUNCTION()
+	// What the Projectile will do once it has hit another object.
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 };

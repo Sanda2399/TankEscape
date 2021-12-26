@@ -37,6 +37,11 @@ ABasePawn::ABasePawn()
 	SpawnPoints.Emplace(ProjectileSpawnPointRight);
 }
 
+void ABasePawn::HandleDestruction()
+{
+	// TODO - Death Visual and Sound Effects
+}
+
 ////////////// Movement //////////////
 void ABasePawn::RotateTurret(FVector LookAtLocation)
 {
@@ -85,26 +90,50 @@ void ABasePawn::FireProjectile()
 	if (bFireSingleShot)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Single Shot"));
+		
 		FVector ProjectileSpawnPointMiddleLocation = ProjectileSpawnPointMiddle -> GetComponentLocation();
 		FRotator ProjectileSpawnPointMiddleRotation = ProjectileSpawnPointMiddle -> GetComponentRotation();
 
-		// Spawn a Projectile
-		GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
+		// Spawns a Projectile and makes sure homing missiles are off.
+		AProjectile* Projectile = GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
+
+		// Sets the owner of the spawned projectile to the instance of the Object that spawned it.
+		Projectile -> SetOwner(this);
 	}
 	else if (bFireHomingShot)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Homing Shot"));
+
+		FVector ProjectileSpawnPointMiddleLocation = ProjectileSpawnPointMiddle -> GetComponentLocation();
+		FRotator ProjectileSpawnPointMiddleRotation = ProjectileSpawnPointMiddle -> GetComponentRotation();
+
+		// Spawns a Projectile and makes sure homing missiles are on.
+		AProjectile* Projectile = GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointMiddleLocation, ProjectileSpawnPointMiddleRotation);
+
+		// Sets the owner of the spawned projectile to the instance of the Object that spawned it.
+		Projectile -> SetOwner(this);
 	}
 	else if (bFireWideShot) 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Fired Wide Shot"));
+
+		// Creation of a Projectiles array in order to be able to set their owners.
+		TArray <AProjectile*> Projectiles;
+
+		// Spawns a projectile for each spawn point available.
 		for (int i = 0; i < SpawnPoints.Num(); i++)
 		{
 			FVector ProjectileSpawnPointLocation = SpawnPoints[i] -> GetComponentLocation();
 			FRotator ProjectileSpawnPointRotation = SpawnPoints[i] -> GetComponentRotation();
-			
-			// Spawn a Projectile
-			GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation);
+
+			// Spawns a Projectile and makes sure homing missiles are off.
+			Projectiles.Emplace(GetWorld() -> SpawnActor<AProjectile>(ProjectileType, ProjectileSpawnPointLocation, ProjectileSpawnPointRotation));
+		}
+
+		// Sets the owner for each spawned projectile.
+		for (AProjectile* Projectile : Projectiles)
+		{
+			Projectile -> SetOwner(this);
 		}
 	}
 }

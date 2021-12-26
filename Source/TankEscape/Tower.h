@@ -17,14 +17,15 @@ class TANKESCAPE_API ATower : public ABasePawn
 public:
 	virtual void Tick(float DeltaTime) override;
 
+	void HandleDestruction();
+
 protected:
 	virtual void BeginPlay() override;
 
 private:
 	// Member Variables to be used for finding the Tank's current location.
-	class ATank* PlayerTank;
+	class ATank* PlayerTank = nullptr;
 	float TankCurDistance;
-
 
 	/////////// Tower Settings ///////////
 	UPROPERTY(EditAnywhere, Category = "Tower Settings")

@@ -37,6 +37,12 @@ void ATower::BeginPlay()
     );
 }
 
+void ATower::HandleDestruction()
+{
+    Super::HandleDestruction();
+    Destroy();
+}
+
 
 void ATower::CheckFireCondition()
 {
@@ -44,7 +50,7 @@ void ATower::CheckFireCondition()
     if (InFiringRange())
     {
         // * Can randomize this later or have different towers set at different modes for variety. *
-        SetFiringMode(1);
+        SetFiringMode(3);
         FireProjectile();
     }
 }

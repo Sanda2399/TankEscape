@@ -26,6 +26,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController() const { return TankPlayerController; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -49,7 +53,7 @@ private:
 	float TurnRate = 130.f;
 
 	/////////// Player Controller for the Tank /////////////
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 
 	// Member Functions
 

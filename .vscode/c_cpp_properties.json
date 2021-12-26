@@ -19,7 +19,7 @@
             "compileCommands": "/Users/brandonmitchell/Documents/GameDevRepo/TankEscapeFiles/TankEscape/.vscode/compileCommands_Default.json"
         },
         {
-            "name": "Unreal Engine",
+            "name": "Unreal",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
