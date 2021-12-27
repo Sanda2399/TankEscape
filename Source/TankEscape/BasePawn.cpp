@@ -52,6 +52,8 @@ void ABasePawn::RotateTurret(FVector LookAtLocation)
 
 
 ///////////////// BasePawn Power Up (Firing) Settings /////////////////
+// * Create Blueprint Widget 
+//   to indicate to the player that they have changed to a new firing mode! *
 void ABasePawn::SetFiringMode(int Value)
 {
 	switch (Value)
