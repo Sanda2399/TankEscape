@@ -38,6 +38,9 @@ void ATankEscapeGameMode_Main::HandleGameStart()
     Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
     CurrentPlayerController = Cast<ATankEscape_PlayerController>(UGameplayStatics::GetPlayerController(this, 0));
 
+    // Will show a widget on screen with text and a countdown timer, letting the player know that the game is getting ready to start.
+    StartGame();
+
     // Creates a coundown timer at the beginning of the game that disables input, then enables input once the timer is finished.
     if (CurrentPlayerController)
     {

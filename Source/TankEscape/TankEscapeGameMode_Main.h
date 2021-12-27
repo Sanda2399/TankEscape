@@ -20,6 +20,9 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame(); // Function's Implementation is in Unreal Blueprints.
+
 private:
 	// Used to have a reference to the main player's pawn.
 	class ATank* Tank;
