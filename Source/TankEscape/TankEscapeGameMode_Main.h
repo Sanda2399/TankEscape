@@ -23,4 +23,11 @@ protected:
 private:
 	// Used to have a reference to the main player's pawn.
 	class ATank* Tank;
+
+	// Used to have a reference to the main player's Controller.
+	class ATankEscape_PlayerController* CurrentPlayerController;
+
+	float GameStartCountdown = 3.f;
+	
+	void HandleGameStart();
 };

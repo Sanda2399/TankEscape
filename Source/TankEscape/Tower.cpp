@@ -50,7 +50,7 @@ void ATower::CheckFireCondition()
     if (InFiringRange())
     {
         // * Can randomize this later or have different towers set at different modes for variety. *
-        SetFiringMode(3);
+        SetFiringMode(1);
         FireProjectile();
     }
 }
