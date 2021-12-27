@@ -19,10 +19,22 @@ void ATankEscapeGameMode_Main::ActorDied(AActor* DeadActor)
         {
             CurrentPlayerController -> SetPlayerEnabledState(false);
         }
+
+        // Declares that the current player has lost the game.
+        GameOver(false);
     }
     else if (ATower* DestroyedTower = Cast<ATower>(DeadActor))
     {
         DestroyedTower -> HandleDestruction();
+
+        // Reduce the number of towers in the world by one.
+        --TargetTowers;
+
+        if (TargetTowers == 0)
+        {
+            // Declares that the current player has won the game.
+            GameOver(true);
+        }
     }
 }
 
@@ -35,6 +47,9 @@ void ATankEscapeGameMode_Main::BeginPlay()
 
 void ATankEscapeGameMode_Main::HandleGameStart()
 {
+    // Set the number of enemy towers currently in the level.
+    TargetTowers = GetTargetTowerCount();
+
     Tank = Cast<ATank>(UGameplayStatics::GetPlayerPawn(this, 0));
     CurrentPlayerController = Cast<ATankEscape_PlayerController>(UGameplayStatics::GetPlayerController(this, 0));
 
@@ -63,4 +78,14 @@ void ATankEscapeGameMode_Main::HandleGameStart()
             false
         );
     }
+}
+
+int32 ATankEscapeGameMode_Main::GetTargetTowerCount()
+{
+    TArray<AActor*> Towers;
+
+    // Get the tower objects in this world and return them all in the Towers array.
+    UGameplayStatics::GetAllActorsOfClass(this, ATower::StaticClass(), Towers);
+
+    return Towers.Num();
 }

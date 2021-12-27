@@ -23,7 +23,14 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 	void StartGame(); // Function's Implementation is in Unreal Blueprints.
 
+	// Declares whether the current player has won or lost the game.
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWonGame); // Function's Implementation is in Unreal Blueprints.
+
 private:
+	// Used to have a count of the total number of towers left in the world.
+	int32 TargetTowers = 0;
+
 	// Used to have a reference to the main player's pawn.
 	class ATank* Tank;
 
@@ -33,4 +40,7 @@ private:
 	float GameStartCountdown = 4.f;
 	
 	void HandleGameStart();
+
+	// Gets the total number of enemy towers currently left in the world.
+	int32 GetTargetTowerCount();
 };
