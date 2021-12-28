@@ -33,6 +33,12 @@ void AProjectile::BeginPlay()
 	
 	// Registers the function 'OnHit' to the OnComponentHit Delegate, so that whether a Hit Event occurs, 'OnHit' is called.
 	ProjectileMesh -> OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+
+	if (LaunchSoundEffect)
+	{
+		// Plays the launch sound effect whenever a projectile is shot from a Pawn.
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSoundEffect, GetActorLocation());
+	}
 }
 
 // Called every frame
@@ -83,6 +89,11 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 		{
 			// Spawn Smoke visual effect.
 			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
+		}
+		if (ImpactSoundEffect)
+		{
+			// Plays the Impact sound effect whenever a projectile hits something.
+			UGameplayStatics::PlaySoundAtLocation(this, ImpactSoundEffect, GetActorLocation());
 		}
 	}
 

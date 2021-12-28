@@ -64,4 +64,8 @@ private:
 	// Visual Effect that will occur on pawn death.
 	UPROPERTY(EditAnywhere, Category = "Visual Effects")
 	class UParticleSystem* DeathEffect;
+
+	// Audio Effect that will occur on pawn death.
+	UPROPERTY(EditAnywhere, Category = "Audio Effects")
+	class USoundBase* DestroyedSoundEffect;
 };

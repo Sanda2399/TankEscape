@@ -44,6 +44,11 @@ void ABasePawn::HandleDestruction()
 		// Spawn the Death Smoke once this pawn has died.
 		UGameplayStatics::SpawnEmitterAtLocation(this, DeathEffect, GetActorLocation(), GetActorRotation());
 	}
+	if (DestroyedSoundEffect)
+	{
+		// Plays a explosion sound whenever this pawn has been destroyed.
+		UGameplayStatics::PlaySoundAtLocation(this, DestroyedSoundEffect, GetActorLocation());
+	}
 }
 
 ////////////// Movement //////////////

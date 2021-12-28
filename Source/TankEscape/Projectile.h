@@ -43,6 +43,14 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Visual Effects")
 	class UParticleSystem* HitParticles;
 
+	// A audio asset that gives this projectile a 'thud' sound when it has launched from the tank.
+	UPROPERTY(EditAnywhere, Category = "Audio Effects")
+	class USoundBase* LaunchSoundEffect;
+
+	// A audio asset that gives this projectile a 'thud' sound when it has hit another object.
+	UPROPERTY(EditAnywhere, Category = "Audio Effects")
+	USoundBase* ImpactSoundEffect;
+
 	UFUNCTION()
 	// What the Projectile will do once it has hit another object.
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
