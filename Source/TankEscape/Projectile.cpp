@@ -71,15 +71,15 @@ void AProjectile::EnableHoming(int Value)
 
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	auto CurOwner = GetOwner();
+	AActor* CurOwner = GetOwner();
 	if (CurOwner == nullptr)
 	{
 		Destroy();
 		return;
 	}
 
-	auto CurOwnerInstigator = CurOwner -> GetInstigatorController();
-	auto ClassOfDamageType = UDamageType::StaticClass();
+	AController* CurOwnerInstigator = CurOwner -> GetInstigatorController();
+	UClass* ClassOfDamageType = UDamageType::StaticClass();
 
 	if (OtherActor && OtherActor != this && OtherActor != CurOwner)
 	{

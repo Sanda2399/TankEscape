@@ -46,8 +46,13 @@ void ATower::HandleDestruction()
 
 void ATower::CheckFireCondition()
 {
-    // If tank within firing range, fire a projectile.
-    if (InFiringRange())
+    if (PlayerTank == nullptr) 
+    {
+        return;
+    }
+
+    // If tank within firing range and is currently alive, fire a projectile.
+    if (InFiringRange() && PlayerTank -> bIsAlive)
     {
         // * Can randomize this later or have different towers set at different modes for variety. *
         SetFiringMode(1);

@@ -59,6 +59,8 @@ void ATank::HandleDestruction()
 
     // Disables the ticking of a game asset.
     SetActorTickEnabled(false);
+
+    bIsAlive = false;
 }
 
 ////////////////// Movement ////////////////////
