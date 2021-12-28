@@ -51,6 +51,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Audio Effects")
 	USoundBase* ImpactSoundEffect;
 
+	// The type of camera shake effect to use when the projectile hits something.
+	UPROPERTY(EditAnywhere, Category = "Camera Effects")
+	TSubclassOf<class UCameraShakeBase> OnHitCameraShake;
+
 	UFUNCTION()
 	// What the Projectile will do once it has hit another object.
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);

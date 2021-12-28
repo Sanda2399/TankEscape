@@ -95,6 +95,11 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 			// Plays the Impact sound effect whenever a projectile hits something.
 			UGameplayStatics::PlaySoundAtLocation(this, ImpactSoundEffect, GetActorLocation());
 		}
+		if (OnHitCameraShake)
+		{
+			// Creates a camera shake effect for the player when hitting something with a projectile.
+			GetWorld() -> GetFirstPlayerController() -> ClientStartCameraShake(OnHitCameraShake);
+		}
 	}
 
 	Destroy();

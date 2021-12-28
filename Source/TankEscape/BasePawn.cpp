@@ -49,6 +49,11 @@ void ABasePawn::HandleDestruction()
 		// Plays a explosion sound whenever this pawn has been destroyed.
 		UGameplayStatics::PlaySoundAtLocation(this, DestroyedSoundEffect, GetActorLocation());
 	}
+	if (OnDeathCameraShake)
+	{
+		// Creates a camera shake effect for the player when a they are killed, or they have killed a enemy.
+		GetWorld() -> GetFirstPlayerController() -> ClientStartCameraShake(OnDeathCameraShake);
+	}
 }
 
 ////////////// Movement //////////////

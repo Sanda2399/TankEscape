@@ -68,4 +68,8 @@ private:
 	// Audio Effect that will occur on pawn death.
 	UPROPERTY(EditAnywhere, Category = "Audio Effects")
 	class USoundBase* DestroyedSoundEffect;
+
+	// Camera Shake effect that will occur when a Pawn has died.
+	UPROPERTY(EditAnywhere, Category = "Camera Effects")
+	TSubclassOf<class UCameraShakeBase> OnDeathCameraShake;
 };
