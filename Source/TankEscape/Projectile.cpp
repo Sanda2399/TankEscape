@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "UObject/UObjectHash.h"
 #include "GameFramework/DamageType.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -15,6 +16,9 @@ AProjectile::AProjectile()
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
 	RootComponent = ProjectileMesh;
+
+	ProjectileTrailComponent = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ProjectileTrailComponent"));
+	ProjectileTrailComponent -> SetupAttachment(RootComponent);
 
 	////////// Projectile Default Settings //////////
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
@@ -74,6 +78,12 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimi
 	if (OtherActor && OtherActor != this && OtherActor != CurOwner)
 	{
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, CurOwnerInstigator, this, ClassOfDamageType);
+
+		if (HitParticles)
+		{
+			// Spawn Smoke visual effect.
+			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
+		}
 	}
 
 	Destroy();

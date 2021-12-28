@@ -26,6 +26,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	UStaticMeshComponent* ProjectileMesh;
 
+	UPROPERTY(VisibleAnywhere, Category = "Visual Effects")
+	class UParticleSystemComponent* ProjectileTrailComponent;
+
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
 	class UProjectileMovementComponent* ProjectileMovementComponent;
 
@@ -35,6 +38,10 @@ private:
 	// How much Damage this Projectile class does.
 	UPROPERTY(EditAnywhere)
 	float Damage = 20.f;
+
+	// A visual asset that gives this projectile smoke particles when it has hit something.
+	UPROPERTY(EditAnywhere, Category = "Visual Effects")
+	class UParticleSystem* HitParticles;
 
 	UFUNCTION()
 	// What the Projectile will do once it has hit another object.

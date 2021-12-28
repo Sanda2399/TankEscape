@@ -3,8 +3,8 @@
 
 #include "BasePawn.h"
 #include "Components/CapsuleComponent.h"
-#include "DrawDebugHelpers.h"
 #include "Projectile.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -39,7 +39,11 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::HandleDestruction()
 {
-	// TODO - Death Visual and Sound Effects
+	if (DeathEffect)
+	{
+		// Spawn the Death Smoke once this pawn has died.
+		UGameplayStatics::SpawnEmitterAtLocation(this, DeathEffect, GetActorLocation(), GetActorRotation());
+	}
 }
 
 ////////////// Movement //////////////

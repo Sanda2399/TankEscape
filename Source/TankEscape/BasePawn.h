@@ -60,4 +60,8 @@ private:
 	// Use in the Blueprint to set the type of Projectile to be spawned. The type of projectile must be based on 'class AProjectile'.
 	UPROPERTY(EditDefaultsOnly, Category = "Projectile Settings")
 	TSubclassOf<class AProjectile> ProjectileType;
+
+	// Visual Effect that will occur on pawn death.
+	UPROPERTY(EditAnywhere, Category = "Visual Effects")
+	class UParticleSystem* DeathEffect;
 };
