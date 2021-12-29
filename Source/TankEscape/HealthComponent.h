@@ -16,18 +16,19 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
+	// Total Health Possible. Is editable in the blueprints details panel.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float MaxHealth = 100.f;
+
+	// Current amount of Health left.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float Health = 0.f;
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 private:
-	// Total Health Possible. Is editable in the blueprints details panel.
-	UPROPERTY(EditAnywhere)
-	float MaxHealth = 100.f;
-
-	// Current amount of Health left.
-	float Health = 0.f;
-
 	// Callback function to be used when damage to the actor this component is owned by, is applied.
 	UFUNCTION()
 	void DamageTaken(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* Instigator, AActor* DamageCauser);
